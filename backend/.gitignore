@@ -1,0 +1,17 @@
+vendor/
+.env
+.env.*
+!.env.example
+
+*.log
+
+*.cache
+*.tmp
+
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+*.iml
+
