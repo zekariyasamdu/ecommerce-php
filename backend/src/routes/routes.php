@@ -4,7 +4,8 @@ use FastRoute\RouteCollector;
 
 require __DIR__ . '/../../vendor/autoload.php';
 
-function getRoutes() {
+function getRoutes()
+{
     return FastRoute\simpleDispatcher(function (RouteCollector $r) {
 
         $r->addRoute('GET', '/api', 'userController@home');
