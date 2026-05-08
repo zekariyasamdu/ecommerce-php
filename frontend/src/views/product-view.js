@@ -1,16 +1,17 @@
+import Header from "../components/header/header.js";
+
 const ProductScreen = {
   render: async () => {
-    return `<div class="product">
-      <h1>Product</h1>
-      <a href="#/">Home</a><br/>
-      <a href="#/signin">signin</a><br/>
-      </div>`;
+    const header = await Header.render();
+    return `
+      <div class="product-page"> 
+      ${header}
+        <h1>Product</h1>
+      </div>
+      `;
   },
-  after_render: async (request) => {
-    const product = document.querySelector(".product");
-    // product.addEventListener("click", () => {
-    //   alert(`clicked`);
-    // });
+  after_render: async () => {
+    await Header.after_render();
   },
 };
 export default ProductScreen;

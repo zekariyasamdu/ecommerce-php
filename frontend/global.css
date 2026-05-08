@@ -1,0 +1,9 @@
+@import "./src/components/header/header.css";
+
+body {
+  background-color: black;
+  color: white;
+  height: 100vh;
+  padding: 0px;
+  margin: 0px;
+}
