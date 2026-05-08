@@ -1,29 +1,26 @@
 import HomeScreen from "../src/views/home-view.js";
 import SigninScreen from "../src/views/signin-view.js";
-import render from "./render.js";
+import ProductScreen from "./views/product-view.js";
+import { parseRequestURL } from "./utils.js";
 
 const routes = {
   "/": HomeScreen,
   "/signin": SigninScreen,
+  "/products/:id": ProductScreen,
 };
+export const router = async () => {
+  const request = parseRequestURL();
+  const parseUrl =
+    (request.resource ? `/${request.resource}` : "/") +
+    (request.id ? "/:id" : "");
 
-function getPathFromHashRoute() {
-  let hash = window.location.hash;
-  if (!hash) return "/";
-  return "/" + hash.substring(1);
-}
+  const screen = routes[parseUrl] ? routes[parseUrl] : Error404Screen;
 
-function resolveRouteFromPath(path) {
-  const route = routes[path];
-  if (!route) return routes["/"];
-  return route;
-}
+  const main = document.getElementById("root");
 
-function onChangeRoute() {
-  const path = getPathFromHashRoute();
-  console.log("path", path);
-  const route = resolveRouteFromPath(path);
-  render(route());
-}
+  main.innerHTML = await screen.render(request);
 
-export default onChangeRoute;
+  if (screen.after_render) {
+    await screen.after_render();
+  }
+};

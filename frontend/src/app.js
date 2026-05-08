@@ -1,4 +1,4 @@
-import onChangeRoute from "./router.js";
+import { router } from "./router.js";
 
-window.addEventListener("load", onChangeRoute);
-window.addEventListener("hashchange", onChangeRoute);
+window.addEventListener("load", router);
+window.addEventListener("hashchange", router);
