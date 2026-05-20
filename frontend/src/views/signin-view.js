@@ -1,17 +1,17 @@
-import Header from "../components/header/header.js";
+import SigninForm from "../components/signin-form/signin-form.js";
 
 const SigninScreen = {
+  const siginForm = SigninForm.render();
   render: async () => {
-    const header = await Header.render();
     return `
       <div class="signin-page"> 
-      ${header}
         <h1>Signin</h1>
+      ${siginForm}
       </div>
-      `;
+      `
   },
   after_render: async () => {
-    await Header.after_render();
+
   },
 };
 export default SigninScreen;

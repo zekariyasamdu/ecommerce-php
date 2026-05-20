@@ -8,7 +8,6 @@ const Header = {
         <a class="nav-brand">Zeus</a>
           <a href="#/">Home</a>
           <a href="#/products/1">Products</a>
-          <a href="#/signin">Sign in</a>
         <div id="nav-user">
           ${name}
         </div>
