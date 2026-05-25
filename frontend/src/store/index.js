@@ -30,19 +30,6 @@ class Store {
       this._events[key] = this._events[key].filter((cb) => cb !== callback);
     };
   }
-
-  signIn(userData) {
-    this.state.user = userData;
-  }
-
-  signOut() {
-    this.state.user = null;
-    StorageService.remove("user");
-  }
-
-  isLoggedIn() {
-    return this.state.user !== null;
-  }
 }
 
 export const store = new Store();

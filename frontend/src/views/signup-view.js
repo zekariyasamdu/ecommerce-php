@@ -1,17 +1,18 @@
-import Header from "../components/header/header.js";
+import SignupForm from "../components/signup-form/signup-form.js";
 
 const SignupScreen = {
   render: async () => {
-    const header = await Header.render();
+    const sigupForm = await SignupForm.render();
     return `
-      <div class="signin-page"> 
-      ${header}
-        <h1>Signin</h1>
+      <div class="signup-page"> 
+        <h1>Signup</h1>
+        ${sigupForm}
       </div>
       `;
   },
   after_render: async () => {
-    await Header.after_render();
+    await SignupForm.after_render();
   },
 };
+
 export default SignupScreen;

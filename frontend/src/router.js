@@ -17,9 +17,14 @@ export const router = async () => {
     (request.resource ? `/${request.resource}` : "/") +
     (request.id ? "/:id" : "");
 
-  if ((!store.state.user && parseUrl !== "/signin") || parseUrl !== "/signin") {
+  if (!store.state.user && parseUrl !== "/signin" && parseUrl !== "/signup") {
     parseUrl = "/signin";
     window.location.hash = "#/signin";
+  }
+
+  if (store.state.user && (parseUrl === "/signin" || parseUrl === "/signup")) {
+    parseUrl = "/";
+    window.location.hash = "#/";
   }
 
   const screen = routes[parseUrl] ? routes[parseUrl] : Error404Screen;
