@@ -1,0 +1,101 @@
+.auth-hero-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  background-color: var(--muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 3rem;
+}
+
+/* Luxury subtle branding floating behind the stack */
+.brand-watermark {
+  position: absolute;
+  top: 10%;
+  left: 5%;
+  font-family: var(--font-sans);
+  font-size: 8rem;
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  color: color-mix(in srgb, var(--foreground), transparent 96%);
+  pointer-events: none;
+  user-select: none;
+}
+
+.stack-canvas {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stack-item {
+  position: absolute;
+  background-color: var(--card);
+  padding: 0.75rem; /* Creates an elegant white borders lookbook effect */
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-xl);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+}
+
+/* Individual Image Placements, Scale, Rotations, and Layering Depth */
+.item-one {
+  width: 240px;
+  height: 320px;
+  z-index: 1;
+  transform: translate(-30px, -40px) rotate(-4deg);
+}
+
+.item-two {
+  width: 220px;
+  height: 280px;
+  z-index: 3;
+  transform: translate(60px, 80px) rotate(6deg);
+}
+
+.item-three {
+  width: 180px;
+  height: 240px;
+  z-index: 2;
+  transform: translate(-100px, 120px) rotate(-8deg);
+}
+
+.item-four {
+  width: 200px;
+  height: 200px;
+  z-index: 4;
+  transform: translate(110px, -110px) rotate(3deg);
+}
+
+/* Micro-interaction hover effect to make the presentation feel dynamic */
+.stack-canvas:hover .stack-item {
+  transform: translate(0, 0) rotate(0deg) scale(1.02);
+  z-index: 5;
+}
+
+.stack-canvas:hover .item-one {
+  transition-delay: 0.02s;
+}
+.stack-canvas:hover .item-two {
+  transition-delay: 0.04s;
+}
+.stack-canvas:hover .item-three {
+  transition-delay: 0.06s;
+}
+.stack-canvas:hover .item-four {
+  transition-delay: 0.08s;
+}
