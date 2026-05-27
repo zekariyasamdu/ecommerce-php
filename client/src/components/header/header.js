@@ -9,9 +9,11 @@ const Header = {
       <nav class="navbar">
         <a class="nav-brand">Zeus</a>
           <a href="#/">Products</a>
+          <a href="#/">Favorite</a>
+          <a href="#/cart">Cart</a>
           <a href="#/Profile">Profile</a>
-          <a href="#/cart">Card</a>
           <button id="signout" >signout</button>
+          <button id="signout" >Add</button>
         <div id="nav-user">
           ${name}
         </div>
