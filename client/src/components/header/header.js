@@ -8,9 +8,12 @@ const Header = {
     return `
       <nav class="navbar">
         <a class="nav-brand">Zeus</a>
-          <a href="#/">Home</a>
-          <a href="#/products/1">Products</a>
+          <a href="#/">Products</a>
+          <a href="#/">Favorite</a>
+          <a href="#/cart">Cart</a>
+          <a href="#/Profile">Profile</a>
           <button id="signout" >signout</button>
+          <button id="signout" >Add</button>
         <div id="nav-user">
           ${name}
         </div>

@@ -1,4 +1,4 @@
-import SigninForm from "../components/signin-form/signin-form.js";
+import SigninForm from "../../components/signin-form/signin-form.js";
 
 const SigninScreen = {
   render: async () => {
