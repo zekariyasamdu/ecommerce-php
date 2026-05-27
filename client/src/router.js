@@ -19,12 +19,17 @@ export const router = async () => {
     (request.resource ? `/${request.resource}` : "/") +
     (request.id ? "/:id" : "");
 
-  if (!store.state.user && parseUrl !== "/signin" && parseUrl !== "/signup" && parseUrl === '/') {
+  if (
+    !store.state.user &&
+    parseUrl !== "/signin" &&
+    parseUrl !== "/signup" &&
+    parseUrl !== "/"
+  ) {
     parseUrl = "/signin";
     window.location.hash = "#/signin";
   }
 
-  if (store.state.user && (parseUrl === "/signin" || parseUrl === "/signup" && parseUrl !== '/')) {
+  if (store.state.user && (parseUrl === "/signin" || parseUrl === "/signup")) {
     parseUrl = "/product";
     window.location.hash = "#/";
   }
