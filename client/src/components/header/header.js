@@ -1,5 +1,6 @@
 import { isLoggedIn, signOut } from "../../auth.js";
 import { store } from "../../store/index.js";
+import "./header.css";
 
 const Header = {
   render: async () => {

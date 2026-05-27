@@ -1,9 +1,10 @@
 import HomeScreen from "../src/views/home-view.js";
 import SigninScreen from "../src/views/signin-view.js";
 import ProductScreen from "./views/product-view.js";
+import SignupScreen from "./views/signup-view.js";
+import "./global.css";
 import { store } from "./store/index.js";
 import { parseRequestURL } from "./utils.js";
-import SignupScreen from "./views/signup-view.js";
 
 const routes = {
   "/": HomeScreen,

@@ -1,3 +1,5 @@
+import "./signup-form.css";
+
 const SignupForm = {
   render: async () => {
     return `
