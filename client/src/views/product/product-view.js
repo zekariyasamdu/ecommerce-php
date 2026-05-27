@@ -2,13 +2,15 @@ import "./product-view.css";
 import Header from "../../components/header/header.js";
 import Promotion from "../../components/promotion/promotion.js";
 import ProductItem from "../../components/product-item/product-item.js";
+import { QUERY } from "../../services/product-services.js";
 
 const ProductScreen = {
   render: async () => {
     const header = await Header.render();
     const promotion = await Promotion.render();
+    const data = await QUERY.getProducts();
     const productItems = await Promise.all(
-      Array.from({ length: 10 }, (_, i) => ProductItem.render({ name: i })),
+      data.map((item) => ProductItem.render(item)),
     );
 
     return `
