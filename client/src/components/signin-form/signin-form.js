@@ -5,6 +5,7 @@ const SigninForm = {
   render: async () => {
     return `
       <form id="signin-form">
+      <h1>Hello</h1>
       <input id="email" placeholder="email" type="email" required/>
       <input id="password" placeholder="password" type="password" required/>
       <button type="submit" >Sign in</button>
