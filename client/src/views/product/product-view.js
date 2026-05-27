@@ -1,12 +1,14 @@
+import "./product-view.css";
 import Header from "../../components/header/header.js";
 
 const ProductScreen = {
   render: async () => {
     const header = await Header.render();
+    const promotion;
     return `
-      <div class="product-page"> 
-      ${header}
-        <h1>Product</h1>
+      <div class="home-page"> 
+        ${header}
+        <h1>Home</h1>
       </div>
       `;
   },
