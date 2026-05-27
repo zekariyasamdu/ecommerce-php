@@ -3,13 +3,13 @@ import "./AuthHero.css";
 const AuthHero = {
   render: async () => {
     const img1 =
-      "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=600&auto=format&fit=crop";
+      "yellow-cloth.webp";
     const img2 =
-      "https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=600&auto=format&fit=crop";
+      "red-nike.webp";
     const img3 =
-      "https://images.unsplash.com/photo-1509319117193-57bab727e09d?q=80&w=600&auto=format&fit=crop";
+      "closet.webp";
     const img4 =
-      "https://images.unsplash.com/photo-1511556532299-8f662fc26c06?q=80&w=600&auto=format&fit=crop";
+      "pink-nike.webp";
 
     return `
       <div class="auth-hero-container">
