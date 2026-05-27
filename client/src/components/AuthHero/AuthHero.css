@@ -11,10 +11,43 @@
   padding: 3rem;
 }
 
-/* Luxury subtle branding floating behind the stack */
+.back-home-btn {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  z-index: 10;
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem; 
+  border: 1px solid var(--muted-foreground);
+  border-radius: 50%;
+  transition:
+    background-color 0.15s ease,
+    transform 0.15s ease;
+}
+
+/* Keeps your external PNG icon crisp, sized correctly, and adapting to dark/light modes */
+.back-home-btn img {
+  width: 20px; /* 40px might look a bit massive next to your sleek typography, 20-24px fits best */
+  height: 20px;
+  object-fit: contain;
+}
+
+[data-theme="dark"] .back-home-btn img {
+  filter: invert(
+    1
+  ); /* Automatically flips a dark PNG icon to white if you view dark mode later! */
+}
+
+.back-home-btn:hover {
+  transform: translateY(-1px);
+}
+
+/* Luxury branding element floating behind the layout stack */
 .brand-watermark {
   position: absolute;
-  top: 10%;
+  top: 12%;
   left: 5%;
   font-family: var(--font-sans);
   font-size: 8rem;
@@ -38,11 +71,13 @@
 .stack-item {
   position: absolute;
   background-color: var(--card);
-  padding: 0.75rem; /* Creates an elegant white borders lookbook effect */
+  padding: 0.75rem; /* Creates the clean physical border print frame */
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
   box-shadow: var(--shadow-xl);
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transition:
+    transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.3s ease;
 }
 
 .hero-img {
@@ -52,7 +87,7 @@
   border-radius: var(--radius-sm);
 }
 
-/* Individual Image Placements, Scale, Rotations, and Layering Depth */
+/* Hard-coded structural layouts so they remain locked into their clean lookbook grid */
 .item-one {
   width: 240px;
   height: 320px;
@@ -79,23 +114,4 @@
   height: 200px;
   z-index: 4;
   transform: translate(110px, -110px) rotate(3deg);
-}
-
-/* Micro-interaction hover effect to make the presentation feel dynamic */
-.stack-canvas:hover .stack-item {
-  transform: translate(0, 0) rotate(0deg) scale(1.02);
-  z-index: 5;
-}
-
-.stack-canvas:hover .item-one {
-  transition-delay: 0.02s;
-}
-.stack-canvas:hover .item-two {
-  transition-delay: 0.04s;
-}
-.stack-canvas:hover .item-three {
-  transition-delay: 0.06s;
-}
-.stack-canvas:hover .item-four {
-  transition-delay: 0.08s;
 }
