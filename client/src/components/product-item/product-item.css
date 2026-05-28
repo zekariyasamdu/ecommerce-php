@@ -1,0 +1,94 @@
+.product-item-card {
+  width: 240px;
+  padding: 10px;
+  background: var(--color-background-primary);
+  border: 0.5px solid var(--color-border-tertiary);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-xl);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.18s ease;
+  cursor: pointer;
+}
+
+.product-image-wrapper {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  aspect-ratio: 1 / 1;
+  background-size: cover;
+  background-position: center;
+  background-color: var(--color-background-secondary);
+  position: relative;
+}
+
+.like-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--color-background-primary);
+  border: 0.5px solid var(--color-border-tertiary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin: 0;
+  z-index: 100;
+  color: var(--color-text-secondary);
+  font-size: 15px;
+}
+
+.product-info {
+  width: 100%;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  flex-direction: column;
+  gap: 10px;
+}
+.product-title {
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.product-price {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+.card-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+.product-action,
+.add-btn {
+  font-size: 13px;
+  padding: 6px 0;
+  border-radius: var(--border-radius-md);
+  cursor: pointer;
+  border: 0.5px solid var(--color-border-secondary);
+  background: transparent;
+  color: var(--color-text-primary);
+  transition: background 0.15s;
+}
+.add-btn {
+  background: var(--color-text-primary);
+  color: var(--color-background-primary);
+  border-color: transparent;
+}
+.product-action:hover {
+  background: var(--color-background-secondary);
+}
+.add-btn:hover {
+  opacity: 0.85;
+}

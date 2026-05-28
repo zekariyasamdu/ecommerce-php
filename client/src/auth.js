@@ -9,7 +9,7 @@ export async function signin(email, password) {
   if (usr[0]) {
     console.log("logged in");
     store.state.user = usr[0];
-    window.location.hash = "#/";
+    window.location.hash = "#/product";
     return;
   }
   console.log("user doesn't exist!");

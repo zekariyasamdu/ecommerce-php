@@ -1,12 +1,12 @@
 import Header from "../../components/header/header.js";
 
-const HomeScreen = {
+const ProductDetailScreen = {
   render: async () => {
     const header = await Header.render();
     return `
-      <div class="home-page"> 
-        ${header}
-        <h1>Home</h1>
+      <div class="product-page"> 
+      ${header}
+        <h1>Product</h1>
       </div>
       `;
   },
@@ -14,4 +14,4 @@ const HomeScreen = {
     await Header.after_render();
   },
 };
-export default HomeScreen;
+export default ProductDetailScreen;

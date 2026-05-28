@@ -1,6 +1,6 @@
-import HomeScreen from "./views/home/home-view.js";
-import SigninScreen from "./views/signin/signin-view.js";
 import ProductScreen from "./views/product/product-view.js";
+import SigninScreen from "./views/signin/signin-view.js";
+import ProductDetailScreen from "./views/product-detail/product-detail-view.js";
 import SignupScreen from "./views/signup/signup-view.js";
 import LandingScreen from "./views/Landing/landing-view.js";
 import "./global.css";
@@ -9,9 +9,10 @@ import { parseRequestURL } from "./utils.js";
 
 const routes = {
   "/": LandingScreen,
+  "/product": ProductScreen,
   "/signin": SigninScreen,
   "/signup": SignupScreen,
-  "/products/:id": ProductScreen,
+  "/products/:id": ProductDetailScreen,
 };
 export const router = async () => {
   const request = parseRequestURL();

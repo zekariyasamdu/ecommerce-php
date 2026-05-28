@@ -1,0 +1,10 @@
+.search-card {
+  width: 90vw;
+  height: 150px;
+  background-color: gray;
+  color: var(--card-foreground);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-xl);
+  padding: 2.5rem;
+}

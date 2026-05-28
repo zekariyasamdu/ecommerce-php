@@ -12,9 +12,11 @@ export function parseRequestURL() {
   };
 }
 
-export async function simulateDelay() {
-  await Promise(res, () => {
-    setTimeout(console.log("finished"), 1000);
-    res();
+export async function simulateDelay(ms = 1000) {
+  await new Promise((res) => {
+    setTimeout(() => {
+      console.log("finished");
+      res();
+    }, ms);
   });
 }
