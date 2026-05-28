@@ -1,13 +1,14 @@
-import HomeScreen from "../src/views/home-view.js";
-import SigninScreen from "../src/views/signin-view.js";
-import ProductScreen from "./views/product-view.js";
-import SignupScreen from "./views/signup-view.js";
+import HomeScreen from "./views/home/home-view.js";
+import SigninScreen from "./views/signin/signin-view.js";
+import ProductScreen from "./views/product/product-view.js";
+import SignupScreen from "./views/signup/signup-view.js";
+import LandingScreen from "./views/Landing/landing-view.js";
 import "./global.css";
 import { store } from "./store/index.js";
 import { parseRequestURL } from "./utils.js";
 
 const routes = {
-  "/": HomeScreen,
+  "/": LandingScreen,
   "/signin": SigninScreen,
   "/signup": SignupScreen,
   "/products/:id": ProductScreen,
@@ -18,13 +19,18 @@ export const router = async () => {
     (request.resource ? `/${request.resource}` : "/") +
     (request.id ? "/:id" : "");
 
-  if (!store.state.user && parseUrl !== "/signin" && parseUrl !== "/signup") {
+  if (
+    !store.state.user &&
+    parseUrl !== "/signin" &&
+    parseUrl !== "/signup" &&
+    parseUrl !== "/"
+  ) {
     parseUrl = "/signin";
     window.location.hash = "#/signin";
   }
 
   if (store.state.user && (parseUrl === "/signin" || parseUrl === "/signup")) {
-    parseUrl = "/";
+    parseUrl = "/product";
     window.location.hash = "#/";
   }
 

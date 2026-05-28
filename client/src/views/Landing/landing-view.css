@@ -1,0 +1,554 @@
+/* ==========================================================================
+   GLOBAL LAYOUT WRAPPER & UTILITIES
+   ========================================================================== */
+.landing-wrapper {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-x: hidden;
+}
+
+/* Common Dark Button Link Component */
+.cta-button-dark {
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+  text-decoration: none;
+  padding: 10px 24px;
+  border-radius: var(--radius-xl);
+  font-size: 13px;
+  font-weight: 500;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.cta-button-dark:hover {
+  opacity: 0.85;
+}
+
+/* ==========================================================================
+   COMBINED HERO & HEADER FULLSCREEN SYSTEM
+   ========================================================================== */
+
+.hero-fullscreen-wrapper {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  box-sizing: border-box;
+}
+
+.hero-bg-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.fullscreen-bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-dark-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0.5) 100%);
+}
+
+/* ==========================================================================
+   FLOATING OVERLAY HEADER
+   ========================================================================== */
+.main-header-floating {
+  position: relative;
+  z-index: 10;
+  width: 80%;
+  max-width: 1400px;
+  margin-top: 24px;
+  background-color: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-xl);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 40px;
+}
+
+.brand-identity {
+  display: flex;
+  align-items: center;
+}
+
+.brand-name {
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 32px;
+}
+
+.nav-link {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.nav-link:hover {
+  color: #ffffff;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+}
+
+.cta-button-login {
+  background-color: #ffffff;
+  color: #000000;
+  text-decoration: none;
+  padding: 10px 28px;
+  border-radius: var(--radius-xl);
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: capitalize;
+  transition: opacity 0.2s ease;
+}
+
+.cta-button-login:hover {
+  opacity: 0.9;
+}
+
+/* ==========================================================================
+   HERO TYPOGRAPHY LAYERED CONTENTS
+   ========================================================================== */
+.hero-fullscreen-content {
+  position: relative;
+  z-index: 5;
+  margin: auto; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 900px;
+  width: 100%;
+  padding: 140px 20px;
+}
+
+.hero-headline-overlay {
+  font-size: 68px;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.15;
+  margin-bottom: 24px;
+  letter-spacing: -2px;
+}
+
+.hero-subtext-overlay {
+  font-size: 19px;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.6;
+  max-width: 580px;
+  font-weight: 400;
+  margin: 0;
+}
+
+/* ==========================================================================
+   RESPONSIVE LAYOUT ADJUSTMENTS
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .main-header-floating {
+    width: 90%;
+    padding: 12px 24px;
+  }
+  .hero-headline-overlay {
+    font-size: 48px;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-menu {
+    display: none; 
+  }
+  .hero-headline-overlay {
+    font-size: 36px;
+    letter-spacing: -1px;
+  }
+  .hero-subtext-overlay {
+    font-size: 16px;
+  }
+}
+
+/* ==========================================================================
+   METRICS DISPLAY SECTION
+   ========================================================================== */
+.metrics-section {
+  width: 100%;
+  background-color: var(--muted);
+  padding: 100px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.section-intro {
+  text-align: center;
+  margin-bottom: 60px;
+  max-width: 600px;
+}
+
+.section-title {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--foreground);
+  margin-bottom: 16px;
+  letter-spacing: -0.5px;
+}
+
+.section-subtitle {
+  font-size: 16px;
+  color: var(--muted-foreground);
+  line-height: 1.5;
+}
+
+.metrics-grid {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  width: 100%;
+  max-width: 1100px;
+}
+
+.metric-card {
+  flex: 1;
+  background-color: var(--card);
+  color: var(--card-foreground);
+  border-radius: var(--radius-xl);
+  padding: 40px 30px;
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border: 1px solid var(--border);
+}
+
+.metric-label {
+  font-size: 12px;
+  color: var(--muted-foreground);
+  font-weight: 500;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.metric-value {
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--foreground);
+  margin-bottom: 8px;
+  letter-spacing: -1px;
+}
+
+.metric-caption {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--foreground);
+  margin-bottom: 16px;
+}
+
+.metric-description {
+  font-size: 13px;
+  color: var(--muted-foreground);
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   COMPATIBILITY & TECHNICAL FEATURES
+   ========================================================================== */
+.compatibility-section {
+  width: 100%;
+  background-color: var(--background);
+  padding: 100px 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.compatibility-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 80px;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.features-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  max-width: 520px;
+}
+
+.features-headline {
+  font-size: 38px;
+  font-weight: 700;
+  color: var(--foreground);
+  letter-spacing: -0.5px;
+  line-height: 1.2;
+}
+
+.features-list {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.feature-item {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.feature-icon-wrapper {
+  margin-top: 2px;
+  flex-shrink: 0;
+  color: var(--foreground);
+}
+
+.feature-text {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.feature-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+.feature-description-text {
+  font-size: 13px;
+  color: var(--muted-foreground);
+  line-height: 1.5;
+}
+
+.showcase-side-panel {
+  flex: 1.1;
+  height: 520px;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.showcase-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ==========================================================================
+   BRAND FOOTER ELEMENT (PRESERVED LOGIC)
+   ========================================================================== */
+.brand-footer-wrapper {
+  width: 100%;
+  background-color: #050505;
+}
+
+.footer-inner-content {
+  padding: 100px 80px 40px 80px;
+  box-sizing: border-box;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-callout-block {
+  text-align: center;
+  margin-bottom: 90px;
+}
+
+.footer-subtitle {
+  font-size: 16px;
+  color: #888888;
+  margin: 0 0 16px 0;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+}
+
+.footer-giant-cta {
+  font-size: 72px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  font-family: 'Arial Black', Impact, sans-serif;
+  margin: 0;
+  line-height: 1;
+}
+
+.footer-links-grid {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 1200px;
+  margin-bottom: 60px;
+  gap: 40px;
+}
+
+.footer-about-col {
+  flex: 1.5;
+  max-width: 320px;
+}
+
+.footer-logo-title {
+  font-size: 24px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0 0 20px 0;
+}
+
+.footer-about-text {
+  font-size: 13px;
+  color: #666666;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.footer-nav-links-columns {
+  flex: 2;
+  display: flex;
+  justify-content: space-between;
+  max-width: 600px;
+  width: 100%;
+}
+
+.links-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.links-stack a {
+  color: #888888;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 400;
+  transition: color 0.2s ease;
+}
+
+.links-stack a:hover {
+  color: #ffffff;
+}
+
+.footer-bottom-bar {
+  width: 100%;
+  max-width: 1200px;
+  border-top: 1px solid #1a1a1a;
+  padding-top: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.legal-copy {
+  font-size: 12px;
+  color: #444444;
+  font-weight: 400;
+}
+
+/* ==========================================================================
+   MEDIA QUERIES (RESPONSIVE DESIGN)
+   ========================================================================== */
+
+/* Tablet Viewports */
+@media (max-width: 1024px) {
+  .hero-headline {
+    font-size: 48px;
+  }
+  .metrics-grid {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .compatibility-container {
+    flex-direction: column;
+    gap: 50px;
+  }
+  .features-panel, .showcase-side-panel {
+    max-width: 100%;
+    width: 100%;
+  }
+  .showcase-side-panel {
+    height: 400px;
+  }
+  .footer-links-grid {
+    flex-direction: column;
+    gap: 50px;
+  }
+}
+
+/* Mobile Viewports */
+@media (max-width: 768px) {
+  .main-header {
+    padding: 20px;
+  }
+  .nav-menu {
+    display: none;
+  }
+  .hero-section {
+    padding: 50px 20px 0 20px;
+  }
+  .hero-headline {
+    font-size: 36px;
+  }
+  .hero-subtext {
+    font-size: 16px;
+    margin-bottom: 40px;
+  }
+  .metrics-section, .compatibility-section {
+    padding: 60px 20px;
+  }
+  .section-title, .features-headline {
+    font-size: 28px;
+  }
+  .footer-inner-content {
+    padding: 60px 20px 30px 20px;
+  }
+  .footer-giant-cta {
+    font-size: 48px;
+  }
+  .footer-nav-links-columns {
+    flex-direction: column;
+    gap: 30px;
+  }
+  .footer-bottom-bar {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+}
