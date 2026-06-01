@@ -1,4 +1,4 @@
-const ProfileScreen = {
+const Name = {
   render: async () => {
     return `
       <div class="">
@@ -9,4 +9,4 @@ const ProfileScreen = {
   after_render: async () => {},
 };
 
-export default ProfileScreen;
+export default Name;

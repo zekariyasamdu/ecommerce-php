@@ -1,11 +1,11 @@
-import './signin-view.css'
+import "./signin-view.css";
 import SigninForm from "../../components/signin-form/signin-form.js";
-import AuthHero from '../../components/AuthHero/AuthHero.js';
+import AuthHero from "../../components/auth-hero/auth-hero.js";
 
 const SigninScreen = {
   render: async () => {
     const signinForm = await SigninForm.render();
-    const authHero = await AuthHero.render()
+    const authHero = await AuthHero.render();
     return `
       <div class="split-auth-wrapper">
         <div class="auth-split-visual">

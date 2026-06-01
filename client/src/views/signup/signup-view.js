@@ -1,6 +1,6 @@
-import './signup-view.css'
-import SignupForm from '../../components/signup-form/signup-form.js';
-import AuthHero from '../../components/AuthHero/AuthHero.js';
+import "./signup-view.css";
+import SignupForm from "../../components/signup-form/signup-form.js";
+import AuthHero from "../../components/auth-hero/auth-hero.js";
 
 const SignupScreen = {
   render: async () => {

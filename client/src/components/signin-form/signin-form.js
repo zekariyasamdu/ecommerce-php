@@ -1,5 +1,8 @@
 import "./signin-form.css";
 import { signin } from "../../auth.js";
+import Button from "../ui/button/button.js";
+
+const signinBtn = Button();
 
 const SigninForm = {
   render: async () => {
@@ -15,8 +18,7 @@ const SigninForm = {
           <input id="password" class="form-input" placeholder="••••••••" type="password" required autocomplete="current-password"/>
         </div>
         
-        <button type="submit" class="btn-primary">Sign in with Email</button>
-        
+        ${await signinBtn.render("signin", "signinBtn", "submit")}
         <div class="form-footer">
           <p class="footer-text">Don't have an account? <a href="#/signup" class="footer-link">Sign up</a></p>
         </div>
@@ -27,9 +29,10 @@ const SigninForm = {
     const form = document.querySelector("#signin-form");
     const emailHTML = document.querySelector("#email");
     const passwordHTML = document.querySelector("#password");
+    signinBtn.after_render();
 
     form.addEventListener("submit", async (e) => {
-      e.preventDefault(); // Prevents layout-breaking full page reload
+      e.preventDefault();
       const email = emailHTML.value;
       const password = passwordHTML.value;
       await signin(email, password);

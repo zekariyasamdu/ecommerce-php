@@ -1,15 +1,11 @@
-import "./AuthHero.css";
+import "./auth-hero.css";
 
 const AuthHero = {
   render: async () => {
-    const img1 =
-      "yellow-cloth.webp";
-    const img2 =
-      "red-nike.webp";
-    const img3 =
-      "closet.webp";
-    const img4 =
-      "pink-nike.webp";
+    const img1 = "yellow-cloth.webp";
+    const img2 = "red-nike.webp";
+    const img3 = "closet.webp";
+    const img4 = "pink-nike.webp";
 
     return `
       <div class="auth-hero-container">

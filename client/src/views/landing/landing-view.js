@@ -27,7 +27,7 @@ const LandingScreen = {
             </nav>
 
             <div class="header-actions">
-              <a href="#/login" class="cta-button-login">Login</a>
+              <a href="#/signin" class="cta-button-login">Login</a>
             </div>
           </header>
 
@@ -220,7 +220,8 @@ const LandingScreen = {
       </div>
     `;
   },
-  after_render: async () => {}
+  after_render: async () => {},
 };
 
 export default LandingScreen;
+

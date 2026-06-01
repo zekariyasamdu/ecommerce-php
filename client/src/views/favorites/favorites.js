@@ -1,4 +1,4 @@
-const ProfileScreen = {
+const FavoritesScreen = {
   render: async () => {
     return `
       <div class="">
@@ -9,4 +9,4 @@ const ProfileScreen = {
   after_render: async () => {},
 };
 
-export default ProfileScreen;
+export default FavoritesScreen;

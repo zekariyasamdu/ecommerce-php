@@ -1,21 +1,29 @@
+import "./header.css";
 import { isLoggedIn, signOut } from "../../auth.js";
 import { store } from "../../store/index.js";
-import "./header.css";
+import Button from "../ui/button/button.js";
+
+const signOutBtn = Button();
+const addBtn = Button();
 
 const Header = {
   render: async () => {
     const name = isLoggedIn() ? store.state.user.name : "Guest";
     return `
       <nav class="navbar">
-        <a class="nav-brand">Zeus</a>
-          <a href="#/">Products</a>
-          <a href="#/">Favorite</a>
+        <a class="nav-brand" href="#/">Zeus</a>
+        
+        <div class="navbar-links">
+          <a href="#/product">Products</a>
+          <a href="#/favorite">Favorite</a>
           <a href="#/cart">Cart</a>
-          <a href="#/Profile">Profile</a>
-          <button id="signout" >signout</button>
-          <button id="signout" >Add</button>
-        <div id="nav-user">
-          ${name}
+          <a href="#/profile">Profile</a>
+        </div>
+        
+        <div class="navbar-actions">
+          ${await addBtn.render("Add", "add-btn")}
+          ${await signOutBtn.render("Signout", "signout-btn")}
+          <div id="nav-user">${name}</div>
         </div>
       </nav>
     `;
@@ -27,11 +35,15 @@ const Header = {
       if (navUser) navUser.textContent = user ? user.name : "Guest";
     });
 
-    const btn = document.querySelector("#signout");
-    btn.addEventListener("click", () => {
-      signOut();
-      window.location.hash = "#/signin";
+    signOutBtn.after_render([], "btn-primary", "btn-md", {
+      event: "click",
+      callback: () => {
+        signOut();
+        window.location.hash = "#/signin";
+      },
     });
+
+    addBtn.after_render([], "btn-primary", "btn-md");
   },
 };
 

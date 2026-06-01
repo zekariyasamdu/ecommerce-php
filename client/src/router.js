@@ -1,18 +1,25 @@
+import "./global.css";
+import { store } from "./store/index.js";
+import { parseRequestURL } from "./utils.js";
 import ProductScreen from "./views/product/product-view.js";
 import SigninScreen from "./views/signin/signin-view.js";
 import ProductDetailScreen from "./views/product-detail/product-detail-view.js";
 import SignupScreen from "./views/signup/signup-view.js";
-import LandingScreen from "./views/Landing/landing-view.js";
-import "./global.css";
-import { store } from "./store/index.js";
-import { parseRequestURL } from "./utils.js";
+import LandingScreen from "./views/landing/landing-view.js";
+import NotFound from "./views/notfound/notfound.js";
+import FavoritesScreen from "./views/favorites/favorites.js";
+import CartScreen from "./views/cart/cart.js";
+import ProfileScreen from "./views/profile/profile-view.js";
 
 const routes = {
   "/": LandingScreen,
   "/product": ProductScreen,
+  "/products/:id": ProductDetailScreen,
   "/signin": SigninScreen,
   "/signup": SignupScreen,
-  "/products/:id": ProductDetailScreen,
+  "/favorite": FavoritesScreen,
+  "/cart": CartScreen,
+  "/profile": ProfileScreen,
 };
 export const router = async () => {
   const request = parseRequestURL();
@@ -35,7 +42,7 @@ export const router = async () => {
     window.location.hash = "#/";
   }
 
-  const screen = routes[parseUrl] ? routes[parseUrl] : Error404Screen;
+  const screen = routes[parseUrl] ? routes[parseUrl] : NotFound;
 
   const main = document.getElementById("root");
 

@@ -1,6 +1,7 @@
+import Button from "../ui/button/button.js";
 import "./signup-form.css";
-
-//import { signup } from "../../auth.js"; 
+//import { signup } from "../../auth.js";
+const signupBtn = Button();
 
 const SignupForm = {
   render: async () => {
@@ -16,8 +17,7 @@ const SignupForm = {
           <input id="signup-password" class="form-input" placeholder="••••••••" type="password" required autocomplete="new-password"/>
         </div>
         
-        <button type="submit" class="btn-primary">Create Account</button>
-
+        ${await signupBtn.render("signup", "signupBtn", "submit")}
         <div class="form-footer">
           <p class="footer-text">Already have an account? <a href="#/signin" class="footer-link">Sign in</a></p>
         </div>
@@ -29,6 +29,7 @@ const SignupForm = {
     const emailHTML = document.querySelector("#signup-email");
     const passwordHTML = document.querySelector("#signup-password");
 
+    signupBtn.after_render();
     /* form.addEventListener("submit", async (e) => {
       e.preventDefault(); // Keeps operations strictly inside the SPA routing box
       const email = emailHTML.value;
