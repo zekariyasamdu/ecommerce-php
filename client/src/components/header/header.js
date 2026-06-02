@@ -35,7 +35,7 @@ const Header = {
       if (navUser) navUser.textContent = user ? user.name : "Guest";
     });
 
-    signOutBtn.after_render([], "btn-primary", "btn-md", {
+    signOutBtn.after_render([], "btn-primary", "btn-md", null, {
       event: "click",
       callback: () => {
         signOut();

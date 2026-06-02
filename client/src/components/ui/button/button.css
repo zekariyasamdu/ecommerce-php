@@ -62,6 +62,7 @@
   background: var(--background);
   border: 1px solid var(--border);
   box-shadow: var(--shadow-sm);
+  color: var(--secondary-foreground);
 }
 
 .btn-outline:hover {

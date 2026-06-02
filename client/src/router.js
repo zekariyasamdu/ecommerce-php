@@ -10,6 +10,7 @@ import NotFound from "./views/notfound/notfound.js";
 import FavoritesScreen from "./views/favorites/favorites.js";
 import CartScreen from "./views/cart/cart.js";
 import ProfileScreen from "./views/profile/profile-view.js";
+import { initIcons } from "./init-icon.js";
 
 const routes = {
   "/": LandingScreen,
@@ -51,4 +52,6 @@ export const router = async () => {
   if (screen.after_render) {
     await screen.after_render();
   }
+
+  initIcons();
 };

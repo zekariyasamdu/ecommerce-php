@@ -48,7 +48,7 @@ export const products = [
     price: 74999,
     description:
       "A high-performance coupe with twin-turbo inline-6, sport-tuned suspension, and razor-sharp handling.",
-    image: "https://images.unsplash.com/photo-1617531653332-bd46c16f4d68?w=500",
+    image: "https://images.unsplash.com/photo-1621135802920-133df287f89c?w=500",
     ownerId: "3",
   },
   {

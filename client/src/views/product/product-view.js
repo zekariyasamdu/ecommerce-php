@@ -3,7 +3,7 @@ import Header from "../../components/header/header.js";
 import Promotion from "../../components/promotion/promotion.js";
 import ProductItem from "../../components/product-item/product-item.js";
 import { QUERY } from "../../services/product-services.js";
-import Search from "../../components/search/promotion.js";
+import Search from "../../components/search/search.js";
 
 const ProductScreen = {
   render: async () => {
@@ -28,6 +28,8 @@ const ProductScreen = {
   },
   after_render: async () => {
     await Header.after_render();
+    const data = await QUERY.getProducts();
+    await Promise.all(data.map((item) => ProductItem.after_render(item)));
   },
 };
 export default ProductScreen;

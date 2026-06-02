@@ -11,7 +11,7 @@ const AuthHero = {
       <div class="auth-hero-container">
         <!-- Back to Home Navigation Action -->
         <a href="#/" class="back-home-btn">
-          <img alt="home-icon" src="https://cdn-icons-png.flaticon.com/512/2549/2549900.png" width="20" height="20"/>
+<i data-lucide="house"></i>
         </a>
 
         <div class="brand-watermark">ZEUS</div>

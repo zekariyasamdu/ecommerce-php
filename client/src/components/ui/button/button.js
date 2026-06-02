@@ -16,12 +16,13 @@ const Button = () => {
       classNames = [],
       variant = "btn-primary",
       size = "btn-md",
-      e,
+      id = null,
+      action,
     ) => {
-      const btn = document.getElementById(ID);
+      const btn = document.getElementById(ID ?? id);
       btn.classList.add(variant, size, ...classNames);
-      if (e) {
-        btn.addEventListener(e.event, e.callback);
+      if (action) {
+        btn.addEventListener(action.event, action.callback);
       }
     },
   };

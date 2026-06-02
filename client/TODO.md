@@ -1,0 +1,2 @@
+- [ ] figure out a better way of passing values to components
+- [ ] figure out a better way of writing components either a class or factories
