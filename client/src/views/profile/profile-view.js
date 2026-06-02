@@ -1,3 +1,5 @@
+import Header from "../../components/header/header.js";
+
 const ProfileScreen = {
   render: async () => {
     const header = await Header.render();
