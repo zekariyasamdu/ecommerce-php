@@ -14,7 +14,9 @@
   gap: 2rem;
   overflow: hidden;
 }
-
+.search-icon {
+  width: 16px;
+}
 /* Left Content Layout */
 .search-left-content {
   display: flex;

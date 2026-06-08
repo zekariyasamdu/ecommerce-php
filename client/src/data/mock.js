@@ -5,6 +5,7 @@ export const users = [
     password: "12345678",
     email: "zach@email.com",
     token: "zach123",
+    image: "zack.webp",
   },
   {
     id: "2",
@@ -12,6 +13,7 @@ export const users = [
     password: "12345678",
     email: "yisak@email.com",
     token: "yisak123",
+    image: "zack.webp",
   },
 ];
 export const products = [

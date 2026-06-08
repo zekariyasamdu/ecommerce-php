@@ -12,6 +12,7 @@ const ProfileScreen = {
     const buttonInstance = Button();
     const name = isLoggedIn() ? store.state.user.name : "unknown";
     const email = isLoggedIn() ? store.state.user.email : "unknown@gmail.com";
+    const image = isLoggedIn() ? store.state.user.image : "";
     const pendingCard = await cardInstance.render(
       `
       <div class="stat-card-body">
@@ -69,7 +70,7 @@ const ProfileScreen = {
               <div class="avatar-frame">
                 <div class="avatar-inner-graphic">
                   <img 
-                    src="zack.webp" 
+                    src=${image} 
                     alt="Zekariyas Amdu Profile Picture" 
                     class="avatar-image-src" 
                   />
