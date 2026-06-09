@@ -13,7 +13,7 @@ export const QUERY = {
     return data;
   },
   async getProducts() {
-    // await simulateDelay();
+    await simulateDelay();
     const data = products;
     return data;
   },

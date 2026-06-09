@@ -1,6 +1,6 @@
 import "./global.css";
 import { store } from "./store/index.js";
-import { parseRequestURL } from "./utils.js";
+import { getCurrentRoute, parseRequestURL } from "./utils.js";
 import ProductScreen from "./views/product/product-view.js";
 import SigninScreen from "./views/signin/signin-view.js";
 import ProductDetailScreen from "./views/product-detail/product-detail-view.js";
@@ -22,11 +22,12 @@ const routes = {
   "/cart": CartScreen,
   "/profile": ProfileScreen,
 };
+const privateRoutes = {};
+const publicRoutes = {};
+
 export const router = async () => {
   const request = parseRequestURL();
-  let parseUrl =
-    (request.resource ? `/${request.resource}` : "/") +
-    (request.id ? "/:id" : "");
+  let parseUrl = getCurrentRoute(request);
 
   if (
     !store.state.user &&
@@ -36,19 +37,27 @@ export const router = async () => {
   ) {
     parseUrl = "/signin";
     window.location.hash = "#/signin";
+    return;
   }
 
   if (store.state.user && (parseUrl === "/signin" || parseUrl === "/signup")) {
     parseUrl = "/product";
     window.location.hash = "#/";
+    return;
   }
 
-  const screen = routes[parseUrl] ? routes[parseUrl] : NotFound;
-
+  const screen = routes[parseUrl] ? routes[parseUrl]() : NotFound;
+  const currentRoute = parseUrl;
   const main = document.getElementById("root");
-
-  main.innerHTML = await screen.render(request);
-
+  if (screen.before_render) {
+    main.innerHTML = await screen.before_render();
+    initIcons();
+  }
+  const html = await screen.render(request);
+  if (currentRoute !== getCurrentRoute(request)) {
+    return;
+  }
+  main.innerHTML = html;
   if (screen.after_render) {
     await screen.after_render();
   }

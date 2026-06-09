@@ -11,7 +11,7 @@ const AuthHero = {
       <div class="auth-hero-container">
         <!-- Back to Home Navigation Action -->
         <a href="#/" class="back-home-btn">
-<i data-lucide="house"></i>
+        <i data-lucide="house"></i>
         </a>
 
         <div class="brand-watermark">ZEUS</div>

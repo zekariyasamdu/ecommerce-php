@@ -12,6 +12,13 @@ export function parseRequestURL() {
   };
 }
 
+export function getCurrentRoute(request) {
+  return (
+    (request.resource ? `/${request.resource}` : "/") +
+    (request.id ? "/:id" : "")
+  );
+}
+
 export async function simulateDelay(ms = 1000) {
   await new Promise((res) => {
     setTimeout(() => {

@@ -1,4 +1,16 @@
-import { createIcons, Heart, House, Menu, Search, User , Phone , Send , Mail , Archive  } from "lucide";
+import {
+  createIcons,
+  Heart,
+  House,
+  Menu,
+  Search,
+  User,
+  Phone,
+  Send,
+  Mail,
+  Archive,
+  Loader,
+} from "lucide";
 
 export function initIcons() {
   createIcons({
@@ -11,7 +23,8 @@ export function initIcons() {
       Phone,
       Send,
       Mail,
-      Archive
+      Archive,
+      Loader,
     },
   });
 }
