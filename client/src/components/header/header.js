@@ -1,8 +1,11 @@
 import "./header.css";
 import { isLoggedIn, signOut } from "../../auth.js";
 import { store } from "../../store/index.js";
+import { reloadRoute } from "../../utils.js";
 
 function Header() {
+  let _unsubscribe = null;
+  console.log(store._events);
   return {
     before_render: () => "",
 
@@ -31,17 +34,17 @@ function Header() {
 
     after_render: async () => {
       const signout = document.getElementById("signout");
-      store.subscribe("user", (user) => {
-        const navUser = document.getElementById("nav-user");
 
-        if (navUser) {
-          navUser.textContent = user ? user.name : "Guest";
-        }
+      _unsubscribe = store.subscribe("user", () => {
+        reloadRoute();
       });
       signout.addEventListener("click", () => {
         signOut();
-        window.location.hash = "#/signin";
       });
+    },
+
+    unMount: async () => {
+      if (_unsubscribe) _unsubscribe();
     },
   };
 }

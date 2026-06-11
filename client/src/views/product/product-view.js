@@ -16,6 +16,8 @@ function ProductScreen() {
     before_render: async () => `
         <div class="product-layout">
           ${await header.render()}
+          ${await promotion.render()}
+          ${await search.render()}
           <div class="product-container">
             <i data-lucide="loader"></i>
           </div>
@@ -48,7 +50,10 @@ function ProductScreen() {
       await search.after_render();
       await Promise.all(actions.map((cb) => cb()));
     },
+    unMount: () => {
+      header.unMount();
+    },
   };
 }
-
+// graph / tree
 export default ProductScreen;

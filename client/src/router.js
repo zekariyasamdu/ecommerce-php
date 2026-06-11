@@ -24,6 +24,7 @@ const routes = {
 };
 const privateRoutes = {};
 const publicRoutes = {};
+let currentView = null;
 
 export const router = async () => {
   const request = parseRequestURL();
@@ -35,32 +36,32 @@ export const router = async () => {
     parseUrl !== "/signup" &&
     parseUrl !== "/"
   ) {
-    parseUrl = "/signin";
     window.location.hash = "#/signin";
     return;
   }
-
   if (store.state.user && (parseUrl === "/signin" || parseUrl === "/signup")) {
-    parseUrl = "/product";
     window.location.hash = "#/";
     return;
   }
 
-  const screen = routes[parseUrl] ? routes[parseUrl]() : NotFound;
+  if (currentView?.unMount) currentView.unMount();
+  currentView = routes[parseUrl] ? routes[parseUrl]() : NotFound();
+
   const currentRoute = parseUrl;
   const main = document.getElementById("root");
-  if (screen.before_render) {
-    main.innerHTML = await screen.before_render();
+
+  if (currentView.before_render) {
+    main.innerHTML = await currentView.before_render();
     initIcons();
   }
-  const html = await screen.render(request);
-  if (currentRoute !== getCurrentRoute(request)) {
-    return;
-  }
+
+  const html = await currentView.render(request);
+
+  if (currentRoute !== getCurrentRoute(request)) return;
+
   main.innerHTML = html;
-  if (screen.after_render) {
-    await screen.after_render();
-  }
+
+  if (currentView.after_render) await currentView.after_render();
 
   initIcons();
 };
