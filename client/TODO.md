@@ -1,7 +1,0 @@
-- [x] Better way of passing values to components
-- [ ] change each component into a function
-  - before_render -> loading ui
-  - render -> main ui
-  - Rerender -> rerender when state changes
-  - after_render -> hydration (even listners and subscription)
-  - unmount -> remove subscription
