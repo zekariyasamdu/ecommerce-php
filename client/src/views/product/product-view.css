@@ -16,3 +16,15 @@
   flex-direction: row;
   flex-wrap: wrap;
 }
+
+.product-status {
+  width: 100%;
+  padding: 3rem 0;
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+}
+
+.product-status.is-error {
+  color: var(--destructive);
+}

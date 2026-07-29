@@ -1,34 +1,31 @@
-import { products } from "../data/mock.js";
-import { simulateDelay } from "../utils.js";
+import { api } from "./api.js";
 
 export const QUERY = {
-  async getUserProducts(userId) {
-    await simulateDelay();
-    const data = products.filter((product) => product.ownerId === userId);
-    return data;
+  async getProducts(search = "") {
+    const query = search ? `?search=${encodeURIComponent(search)}` : "";
+    const data = await api.get(`/products${query}`);
+    return data.products;
   },
-  async getSpecificProduct(productId) {
-    await simulateDelay();
-    const data = products.filter((product) => product.id === productId);
-    return data;
+  async getProduct(productId) {
+    const data = await api.get(`/products/${productId}`);
+    return data.product;
   },
-  async getProducts() {
-    // await simulateDelay();
-    const data = products;
-    return data;
+  async getMyProducts() {
+    const data = await api.get("/my/products");
+    return data.products;
+  },
+  async getMyStats() {
+    const data = await api.get("/my/stats");
+    return data.stats;
   },
 };
 
 export const MUTATIONS = {
-  async postProduct(product, userId) {
-    await simulateDelay();
-    products.push(products);
-    return;
-  },
-  async updateProduct(id) {
-    await simulateDelay();
+  async postProduct(product) {
+    const data = await api.post("/products", product);
+    return data.product;
   },
   async deleteProduct(id) {
-    await simulateDelay();
+    return api.delete(`/products/${id}`);
   },
 };

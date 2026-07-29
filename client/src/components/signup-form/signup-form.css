@@ -60,3 +60,12 @@
   border-color: var(--foreground);
 }
 
+
+.form-error {
+  font-size: 0.875rem;
+  color: var(--destructive);
+  background-color: color-mix(in srgb, var(--destructive), transparent 92%);
+  border: 1px solid color-mix(in srgb, var(--destructive), transparent 75%);
+  border-radius: var(--radius-md);
+  padding: 0.625rem 0.75rem;
+}

@@ -69,3 +69,24 @@
 
 .cart-add-btn {
 }
+
+/* .like-btn became a real <button>; keep it looking exactly like the old <p>. */
+.like-btn {
+  background: transparent;
+  padding: 0;
+  color: inherit;
+  transition: color 0.15s ease;
+}
+
+.like-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+.like-btn.is-favorite {
+  color: var(--destructive);
+}
+
+.like-btn:hover {
+  color: var(--destructive);
+}
